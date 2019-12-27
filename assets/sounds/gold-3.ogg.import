@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gold-3.ogg-4a80f3137a6eafb786a29e6314db2262.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/gold-3.ogg"
+dest_files=[ "res://.import/gold-3.ogg-4a80f3137a6eafb786a29e6314db2262.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
