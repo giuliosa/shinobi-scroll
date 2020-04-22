@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/ChunkSensors.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 299.707 )
+
+[node name="ChunkSensors" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Top" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Top"]
+position = Vector2( 300, 10 )
+shape = SubResource( 1 )
+
+[node name="Bottom" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( -10.5514, 554.307 )
+
+[node name="Shape" type="CollisionShape2D" parent="Bottom"]
+position = Vector2( 300, 11.7962 )
+shape = SubResource( 1 )
+
+[node name="Left" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( -10.5514, 554.307 )
+
+[node name="Shape" type="CollisionShape2D" parent="Left"]
+position = Vector2( 20.5298, -267.492 )
+shape = SubResource( 2 )
+
+[node name="Right" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( -10.5514, 554.307 )
+
+[node name="Shape" type="CollisionShape2D" parent="Right"]
+position = Vector2( 576.497, -267.42 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Top" to="." method="_on_Top_body_entered"]
+[connection signal="body_entered" from="Bottom" to="." method="_on_Bottom_body_entered"]
+[connection signal="body_entered" from="Left" to="." method="_on_Left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_Right_body_entered"]

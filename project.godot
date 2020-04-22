@@ -15,15 +15,18 @@ _global_script_class_icons={
 
 [application]
 
-config/name="shinobi-scroll"
-run/main_scene="res://MainMenu.tscn"
+config/name="ninja-way"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Inventory="*res://Scenes/Inventory.tscn"
 
 [display]
 
 window/size/width=400
 window/size/height=225
-window/size/resizable=false
 window/size/test_width=800
 window/size/test_height=450
 window/stretch/mode="2d"
@@ -50,6 +53,29 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [rendering]
