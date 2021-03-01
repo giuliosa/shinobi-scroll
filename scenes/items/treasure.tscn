@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/items/big-treasure-chest.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 3.91957
+height = 6.0564
+
+[node name="Treasure" type="StaticBody2D"]
+position = Vector2( -0.0589924, 0.0589924 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.23597, -2.94961 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0691147, -0.113073 )
+rotation = 1.5708
+shape = SubResource( 1 )
