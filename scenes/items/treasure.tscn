@@ -1,23 +1,54 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/items/big-treasure-chest.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/items/treasure.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/overlap/Hurtbox.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 14 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 3.91957
 height = 6.0564
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 7.94831, 5.93735 )
+
 [node name="Treasure" type="StaticBody2D"]
-position = Vector2( -0.0589924, 0.0589924 )
+position = Vector2( 0.941008, 0.0589924 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.23597, -2.94961 )
-texture = ExtResource( 1 )
-hframes = 2
+frames = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0691147, -0.113073 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0.264866, -1.98649 )
+shape = SubResource( 5 )
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
