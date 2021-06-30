@@ -28,7 +28,7 @@ height = 6.0564
 extents = Vector2( 7.94831, 5.93735 )
 
 [node name="Treasure" type="StaticBody2D"]
-position = Vector2( 0.941008, 0.0589924 )
+position = Vector2( 22.5941, 39.5811 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -44,6 +44,7 @@ rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0.264866, -1.98649 )
