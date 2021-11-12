@@ -11,5 +11,5 @@ dest_files=[ "res://.import/magic-1.ogg-7b4420187091be707813c89275822aec.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
