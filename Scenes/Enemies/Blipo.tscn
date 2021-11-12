@@ -10,55 +10,54 @@
 [ext_resource path="res://Scenes/Enemies/WanderController.tscn" type="PackedScene" id=8]
 [ext_resource path="res://shaders/WhiteColorShader.shader" type="Shader" id=9]
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 48, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "walk",
 "speed": 8.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 2.94133
 height = 9.5945
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.80877, 8.12246 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=9]
 radius = 56.97
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 6.36781
 height = 2.13303
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 4.29593
 height = 17.7315
 
-[sub_resource type="Animation" id=11]
-resource_name = "Start"
+[sub_resource type="Animation" id=12]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -74,8 +73,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Stop"
+[sub_resource type="Animation" id=13]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/active")
@@ -95,16 +93,17 @@ collision_layer = 16
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-material = SubResource( 13 )
-frames = SubResource( 5 )
+material = SubResource( 1 )
+frames = SubResource( 6 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0.0992126, 4.86142 )
 rotation = 1.5708
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -112,7 +111,7 @@ collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 7.62939e-06, 1.12246 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
 max_health = 3
@@ -123,7 +122,7 @@ visible = false
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 1, 1, 1, 0.133333 )
 position = Vector2( -0.25, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -131,20 +130,20 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2( -3.8147e-06, 1.21737 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 position = Vector2( 0.0660849, 7.87178 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="WanderController" parent="." instance=ExtResource( 8 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Start = SubResource( 11 )
-anims/Stop = SubResource( 12 )
+anims/Start = SubResource( 12 )
+anims/Stop = SubResource( 13 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invicibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invicibility_ended"]
