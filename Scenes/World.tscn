@@ -4420,7 +4420,7 @@ position = Vector2( -68.2583, 13.4929 )
 position = Vector2( 297.638, 96.8315 )
 
 [node name="Blipo9" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 237.316, 130.961 )
+position = Vector2( 223, 126 )
 
 [node name="Blipo10" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -43.6535, 226.998 )
@@ -4442,7 +4442,6 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -30.291
-autoplay = true
 
 [node name="ChangeStage" parent="." instance=ExtResource( 11 )]
 position = Vector2( 264.014, -28.4885 )
